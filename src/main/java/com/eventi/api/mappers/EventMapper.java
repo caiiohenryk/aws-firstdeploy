@@ -2,17 +2,22 @@ package com.eventi.api.mappers;
 
 import com.eventi.api.domain.event.Event;
 import com.eventi.api.domain.event.dto.EventRequestDto;
-import lombok.NoArgsConstructor;
+import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Component;
 
-@NoArgsConstructor
+import java.util.Date;
+
+@RequiredArgsConstructor
+@Component
+
 public class EventMapper {
     public Event toEntity(EventRequestDto dto, String imgUrl) {
-        return new Event(
-                dto.id(),
-                dto.description(),
-                dto.title(),
-                imgUrl,
-                dto.remote(),
-                dto.eventDate());
+        Event newEvent = new Event();
+        newEvent.setDescription(dto.description());
+        newEvent.setTitle(dto.title());
+        newEvent.setRemote(dto.remote());
+        newEvent.setEventDate(new Date(dto.eventDate()));
+        newEvent.setImgUrl(imgUrl);
+        return newEvent;
     }
 }

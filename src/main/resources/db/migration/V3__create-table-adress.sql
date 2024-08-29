@@ -3,5 +3,5 @@ CREATE TABLE tb_adresses(
     uf varchar(2) NOT NULL,
     city varchar(50) NOT NULL,
     event_id UUID,
-    FOREIGN KEY (event_id) REFERENCES event(id) ON DELETE CASCADE
+    FOREIGN KEY (event_id) REFERENCES tb_events(id) ON DELETE CASCADE
 );

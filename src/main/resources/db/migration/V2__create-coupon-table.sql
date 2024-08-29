@@ -6,5 +6,5 @@ CREATE TABLE tb_coupons (
     discount integer NOT NULL,
     valid TIMESTAMP NOT NULL,
     event_id UUID,
-    FOREIGN KEY (event_id) REFERENCES event(id) ON DELETE CASCADE
+    FOREIGN KEY (event_id) REFERENCES tb_events(id) ON DELETE CASCADE
 );
